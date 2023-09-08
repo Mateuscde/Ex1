@@ -19,26 +19,33 @@
             background-color: #4caf50; /* Verde mais escuro */
             padding: 10px;
             text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
         }
 
-        nav ul {
-            list-style: none;
-            padding: 0;
+        nav select {
+            appearance: none; /* Remove estilos padrão da caixa de seleção */
+            background-color: white; /* Fundo transparente */
+            border: none; /* Remove borda */
+            
+            color: green; /* Cor do texto */
+            padding: 5px; /* Remove o preenchimento padrão */
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 20px; /* Espaçamento entre a caixa de seleção e o conteúdo */
         }
 
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #fff;
+        nav select:focus {
+            outline: none; /* Remove a borda de foco */
         }
 
         main {
             padding: 20px;
             flex-grow: 1;
+            margin-top: 40px; /* Espaço para a barra fixa no topo */
         }
 
         footer {
@@ -92,13 +99,13 @@
 </head>
 <body>
     <nav>
-        <ul>
-            <li><a href="#1">Página Inicial</a></li>
-            <li><a href="#2">Sobre Nós</a></li>
-            <li><a href="#3">Dicas de Saúde</a></li>
-            <li><a href="#4">Bem-Estar Mental</a></li>
-            <li><a href="#5">Contato</a></li>
-        </ul>
+        <select id="categorias">
+            <option value="#1">Página Inicial</option>
+            <option value="#3">Dicas de Saúde</option>
+            <option value="#4">Bem-Estar Mental</option>
+            <option value="#5">Alimentação Saudável</option>
+            <option value="#6">Meditação e Relaxamento</option>
+        </select>
     </nav>
 
     <main>
@@ -121,14 +128,14 @@
         <p>Morbi laoreet purus ac odio bibendum, sed varius sapien vehicula. Vivamus id ex et libero fermentum ullamcorper. Fusce consectetur arcu et nisi venenatis, nec fringilla libero congue. Sed auctor orci vel velit feugiat malesuada.</p>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6D778NzHgVHMHFVGxFrosi_CrXR_HvvMhjQ&usqp=CAU" alt="Relaxamento" class="wellness-image">
 
-        <h2>Alimentação Saudável</h2>
+        <h2 id="5">Alimentação Saudável</h2>
         <p class="large-text">Descubra como manter uma dieta equilibrada para uma vida mais saudável.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in porttitor leo. Nullam eu feugiat lorem. Curabitur congue turpis eget semper gravida. Aliquam erat volutpat. Pellentesque sagittis leo in odio tincidunt, non finibus metus rhoncus.</p>
         <p>Donec tincidunt, urna at feugiat scelerisque, lorem mi hendrerit nunc, eget volutpat erat dui non leo. Sed vel urna et nisi congue ullamcorper. Fusce vehicula leo vel pharetra. Fusce et arcu nec turpis volutpat vulputate.</p>
         <p>Morbi laoreet purus ac odio bibendum, sed varius sapien vehicula. Vivamus id ex et libero fermentum ullamcorper. Fusce consectetur arcu et nisi venenatis, nec fringilla libero congue. Sed auctor orci vel velit feugiat malesuada.</p>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgpw6ZYBXx0QjWqoZE12W6GeBs5blxaGB33A&usqp=CAU" alt="Alimentação Saudável" class="wellness-image">
 
-        <h2>Meditação e Relaxamento</h2>
+        <h2 id="6">Meditação e Relaxamento</h2>
         <p class="large-text">Aprenda técnicas de meditação para reduzir o estresse e melhorar o seu bem-estar.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in porttitor leo. Nullam eu feugiat lorem. Curabitur congue turpis eget semper gravida. Aliquam erat volutpat. Pellentesque sagittis leo in odio tincidunt, non finibus metus rhoncus.</p>
         <p>Donec tincidunt, urna at feugiat scelerisque, lorem mi hendrerit nunc, eget volutpat erat dui non leo. Sed vel urna et nisi congue ullamcorper. Fusce vehicula leo vel pharetra. Fusce et arcu nec turpis volutpat vulputate.</p>
@@ -139,5 +146,15 @@
     <footer>
         Desenvolvido por Mateus Cavalcante Ribeiro
     </footer>
+
+    <script>
+        // Função para redirecionar para a âncora correspondente ao selecionar uma opção na caixa de seleção
+        document.getElementById("categorias").addEventListener("change", function() {
+            var selectedAnchor = this.value; // Valor da opção selecionada (âncora)
+            if (selectedAnchor) {
+                window.location.href = selectedAnchor; // Redireciona para a âncora
+            }
+        });
+    </script>
 </body>
 </html>
